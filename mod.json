@@ -1,0 +1,12 @@
+{
+  "name": "Hello Neighbor Multiplayer Mod",
+  "version": "1.0.0",
+  "author": "xandobler-ai",
+  "description": "Multiplayer modification for Hello Neighbor with Co-op and Versus game modes",
+  "game": "Hello Neighbor",
+  "gameVersion": "1.0+",
+  "modLoader": "UE4SS",
+  "modLoaderVersion": "3.0+",
+  "dependencies": [],
+  "scripts": ["HelloNeighborMultiplayer/main.lua"]
+}
