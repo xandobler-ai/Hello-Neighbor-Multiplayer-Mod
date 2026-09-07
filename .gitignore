@@ -1,0 +1,41 @@
+# Unreal Engine
+Binaries/
+Intermediate/
+Saved/
+.vs/
+*.sln
+*.VC.db
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary
+*.tmp
+*.temp
+*.backup
+*.bak
+*~
+
+# Compiled binaries
+*.o
+*.a
+*.lib
+*.dll
+*.exe
+
+# Dependencies
+third_party/
+node_modules/
+Packages/
