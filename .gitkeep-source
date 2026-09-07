@@ -1,0 +1,3 @@
+# Removed Source/ and Plugins/ folders
+# This repository now contains only the Lua-based mod distribution
+# Ready to extract into Hello Neighbor Mods folder
