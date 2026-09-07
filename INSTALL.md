@@ -3,7 +3,7 @@
 ## Hello Neighbor Multiplayer Mod
 
 ### Requirements
-- Hello Neighbor (Steam or Epic Games)
+- Hello Neighbor (Steam)
 - UE4SS (Unreal Engine 4 Script System)
 - Lua support enabled
 
@@ -14,25 +14,26 @@
    - Extract the ZIP file
 
 2. **Locate Your Mods Folder**
-   - Windows:
+   - Windows Steam path:
      ```
-     C:\Users\YourUsername\AppData\Local\HelloNeighbor\Mods\
+     C:\Program Files (x86)\Steam\steamapps\common\Hello Neighbor\Mods\
      ```
-   - Or find it through Steam:
-     - Right-click Hello Neighbor → Properties → Installed Files → Browse
-     - Navigate to: `Mods` folder
 
 3. **Install the Mod**
    - Copy the extracted `HelloNeighborMultiplayer` folder into your Mods directory
    - The folder structure should look like:
      ```
-     Mods/
+     C:\Program Files (x86)\Steam\steamapps\common\Hello Neighbor\Mods\
      └── HelloNeighborMultiplayer/
          ├── main.lua
          ├── config.lua
          ├── modes/
+         │   ├── coop.lua
+         │   └── versus.lua
          ├── network/
+         │   └── replication.lua
          ├── ui/
+         │   └── mode_selector.lua
          └── mod.json
      ```
 
@@ -50,25 +51,26 @@
 
 **Mod Not Loading?**
 - Verify the folder structure matches the format above
-- Check that mod.json is present
-- Ensure main.lua exists in HelloNeighborMultiplayer folder
+- Check that mod.json is present in the HelloNeighborMultiplayer folder
+- Ensure main.lua exists in the HelloNeighborMultiplayer folder
 - Check the game's mod logs for errors
+- Verify UE4SS is properly installed and configured
 
 **Performance Issues?**
-- Reduce tick_rate in config.lua
-- Lower max_players setting
+- Reduce tick_rate in config.lua (default: 60)
+- Lower max_players setting (default: 4)
 - Disable voice chat if experiencing lag
 
 **Multiplayer Connection Problems?**
 - Ensure both players have the mod installed
 - Check firewall settings
 - Verify network connectivity
-- Try increasing max_ping value in config.lua
+- Try increasing max_ping value in config.lua (default: 250ms)
 
 ### Uninstallation
 
 To remove the mod:
-1. Navigate to your Mods folder
+1. Navigate to: `C:\Program Files (x86)\Steam\steamapps\common\Hello Neighbor\Mods\`
 2. Delete the `HelloNeighborMultiplayer` folder
 3. Restart the game
 
