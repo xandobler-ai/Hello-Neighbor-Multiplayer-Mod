@@ -174,10 +174,23 @@ void APlatformManager::DetectPlatform()
 	CurrentPlatform = EPlatformType::Unknown;
 #endif
 
-	// Get screen resolution
-	FDisplayMetrics DisplayMetrics;
-	FSlateApplication::Get().GetDisplayMetrics(DisplayMetrics);
-	ScreenResolution = FVector2D(DisplayMetrics.PrimaryDisplayWidth, DisplayMetrics.PrimaryDisplayHeight);
+	// Get screen resolution - safely handle Slate availability
+	ScreenResolution = FVector2D(1920.0f, 1080.0f); // Default fallback
+	ScreenDensity = 1.0f;
+
+	// Only try to get metrics if Slate is available
+	if (FSlateApplication::IsInitialized())
+	{
+		FDisplayMetrics DisplayMetrics;
+		FSlateApplication::Get().GetDisplayMetrics(DisplayMetrics);
+		ScreenResolution = FVector2D(DisplayMetrics.PrimaryDisplayWidth, DisplayMetrics.PrimaryDisplayHeight);
+		ScreenDensity = DisplayMetrics.GetApplicationScale();
+	}
+	else
+	{
+		// Use system metrics as fallback
+		ScreenResolution = FVector2D(FGenericPlatformMisc::GetScreenWidth(), FGenericPlatformMisc::GetScreenHeight());
+	}
 	
 	UE_LOG(LogTemp, Warning, TEXT("Platform detected: %s - Resolution: %fx%f"), 
 		*GetPlatformName(), ScreenResolution.X, ScreenResolution.Y);
